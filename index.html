@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAGA MC - Máy Chủ Minecraft Thuần Vanilla</title>
+    <link rel="icon" type="image/png" href="NBLRB.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="toast" class="toast">Đã sao chép địa chỉ IP thành công!</div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="NBLRB.png" alt="NAGA MC Logo">
+                <span>NAGA MC</span>
+            </a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links-menu">
+                <li><a href="#" class="active">Trang Chủ</a></li>
+                <li><a href="#about">Giới Thiệu</a></li>
+                <li><a href="#features">Đặc Sắc</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#community">Cộng Đồng</a></li>
+                <li><a href="https://discord.gg/6WrVqjRegJ" target="_blank" class="nav-btn-discord"><i class="fa-brands fa-discord"></i> Tham Gia</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-title-wrapper">
+                <img src="NAGAMC-TITLE.png" alt="NAGA MC" class="hero-main-title">
+            </div>
+            <p class="hero-subtitle">Trải nghiệm sinh tồn nguyên bản, kết nối cộng đồng bền vững.</p>
+            
+            <div class="hero-ctas">
+                <div class="ip-widget" id="copy-ip-btn" data-ip="nagamc.live">
+                    <div class="ip-details">
+                        <span class="ip-label">SERVER IP</span>
+                        <span class="ip-address">nagamc.live</span>
+                    </div>
+                    <div class="ip-action">
+                        <i class="fa-solid fa-copy"></i>
+                        <span>SAO CHÉP</span>
+                    </div>
+                </div>
+
+                <a href="https://llaun.ch/en" target="_blank" class="btn-download-mc">
+                    <i class="fa-solid fa-download"></i>
+                    <div class="download-text">
+                        <span class="download-label">CHO NGƯỜI MỚI</span>
+                        <span class="download-title">TẢI MINECRAFT</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="server-status">
+                <span class="status-indicator"></span>
+                <span class="status-text">Server đang hoạt động ổn định</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-text">
+                    <h2 class="section-title">Lối Chơi Thuần Vanilla</h2>
+                    <p>Tại <strong>NAGA MC</strong>, chúng tôi giữ trọn vẹn những giá trị cốt lõi nhất của Minecraft. Không có những cơ chế tùy biến quá phức tạp làm mất đi bản chất của trò chơi, chúng tôi mang tới một không gian sinh tồn thuần túy nơi kỹ năng, óc sáng tạo và sự phối hợp của bạn quyết định tất cả.</p>
+                    <p>Khám phá thế giới bao la, xây dựng những công trình vĩ đại, khai thác tài nguyên và sinh tồn cùng những người bạn đồng hành trong một môi trường công bằng, không Pay-to-Win.</p>
+                </div>
+                <div class="about-image">
+                    <div class="mc-frame">
+                        <img src="Minecraft_Fall_Drop_Campaign_Key_Art_DotNet_Downloadable_Wallpaper_2058x1440.png" alt="Minecraft Gameplay">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title centered">Tại sao nên chọn NAGA MC?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <h3>Giữ Nguyên Bản Sắc</h3>
+                    <p>Trải nghiệm Minecraft 100% nguyên bản đúng như cách Mojang tạo ra. Luật sinh tồn nghiêm ngặt, trải nghiệm chân thực.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3>Hiệu Năng Vượt Trội</h3>
+                    <p>Hệ thống máy chủ tối ưu hóa phần cứng mạnh mẽ, đảm bảo mức TPS ổn định, giảm thiểu tối đa tình trạng giật lag.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3>Môi Trường Công Bằng</h3>
+                    <p>Hệ thống bảo vệ đất đai, chống phá hoại (anti-grief) và đội ngũ Quản trị viên công tâm, hỗ trợ người chơi nhiệt tình.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="membership" class="membership-section">
+        <div class="container">
+            <h2 class="section-title centered">Gói Thành Viên Server</h2>
+            <div class="membership-grid">
+                
+                <div class="member-card regular">
+                    <div class="member-header">
+                        <i class="fa-solid fa-user-gear member-icon"></i>
+                        <h3>GÓI THƯỜNG</h3>
+                        <div class="price">Miễn Phí</div>
+                    </div>
+                    <ul class="member-features">
+                        <li><i class="fa-solid fa-check"></i> [Kit khởi đầu cơ bản]]</li>
+                        <li><i class="fa-solid fa-check"></i> [Sở hữu 1 set home] </li>
+                        <li><i class="fa-solid fa-check"></i> [Khởi đầu cơ bản với rank<img src="chicken.png" alt="Rank" class="rank-icon">]</li>
+                        <li><i class="fa-solid fa-check"></i> [Có thể nâng cấp rank thông qua hoạt động trên server]</li>
+                    </ul>
+                    <a href="#" class="btn-member-action">CHƠI NGAY</a>
+                </div>
+
+                <div class="member-card donate">
+                    <div class="badge-popular">ĐẶC BIỆT</div>
+                    <div class="member-header">
+                        <i class="fa-solid fa-gem member-icon animate-pulse"></i>
+                        <h3>GÓI DONATE</h3>
+                        <div class="price">10-30k<span>/Tháng</span></div>
+                    </div>
+                    <ul class="member-features">
+                        <li><i class="fa-solid fa-star"></i> [Kit khởi đầu nâng cao]</li>
+                        <li><i class="fa-solid fa-star"></i> [Sở hữu 2 set home]</li>
+                        <li><i class="fa-solid fa-star"></i> [Sở hữu rank <img src="DONATOR.png" alt="Rank" class="rank-icon">]</li>
+                        <li><i class="fa-solid fa-star"></i> [Tăng giới hạn bán/đặt hàng vật phẩm]</li>
+                    </ul>
+                    <a href="pay.html" class="btn-member-action donate-btn">ỦNG HỘ SERVER</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="community" class="community-section">
+        <div class="community-overlay"></div>
+        <div class="container community-content">
+            <h2 class="section-title centered light">Gia Nhập Cộng Đồng Ngay</h2>
+            <p class="community-desc">Đừng sinh tồn đơn độc! Hãy tham gia ngay vào mái nhà chung Discord của NAGA MC để giao lưu, lập đội và cập nhật các thông tin, sự kiện mới nhất từ Ban quản trị.</p>
+            <a href="https://discord.gg/6WrVqjRegJ" target="_blank" class="btn-discord-large">
+                <i class="fa-brands fa-discord"></i> THAM GIA DISCORD SERVER
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <img src="NBLRB.png" alt="NAGA MC">
+                    <span>NAGA MC</span>
+                </div>
+                <p>Một dự án máy chủ Minecraft vận hành bởi những người đam mê trải nghiệm sinh tồn thuần túy.</p>
+            </div>
+            <div class="footer-right">
+                <p>&copy; 2026 NAGA MC. All rights reserved.</p>
+                <p class="footer-disclaimer">Website này không liên kết với Mojang Studios hoặc Microsoft.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

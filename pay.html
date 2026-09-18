@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAGA MC - Thanh Toán & Ủng Hộ Máy Chủ</title>
+    <link rel="icon" type="image/png" href="NBLRB.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- BIẾN MÀU SẮC ĐỒNG BỘ --- */
+        :root {
+            --primary-color: #8a2be2;
+            --primary-light: #b030b0;
+            --primary-gradient: linear-gradient(135deg, #7b1fa2 0%, #e91e63 100%);
+            --bg-dark: #121214;
+            --bg-card: #1a1a1e;
+            --bg-nav: rgba(18, 18, 20, 0.75);
+            --text-main: #f5f5f7;
+            --text-muted: #a1a1aa;
+            --stroke-pixel: 4px solid #000;
+            --font-sans: 'Inter', sans-serif;
+            --font-heading: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER --- */
+        .pay-header {
+            text-align: center;
+            padding: 40px 0 20px 0;
+        }
+
+        .pay-header img {
+            max-height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .pay-header h1 {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+
+        .btn-back:hover {
+            color: #fff;
+        }
+
+        /* --- CẤU TRÚC CHÍNH --- */
+        .pay-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .pay-grid {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .pay-card {
+            background-color: var(--bg-card);
+            border: var(--stroke-pixel);
+            box-shadow: 8px 8px 0px #000;
+            padding: 25px;
+            position: relative;
+        }
+
+        /* --- PHẦN NHẬP THÔNG TIN (TÊN & SỐ TIỀN) --- */
+        .input-group {
+            background-color: #121214;
+            border: 2px solid #2d2d35;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .input-group h3 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            color: var(--primary-light);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .field-block {
+            margin-bottom: 15px;
+        }
+
+        .field-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .field-block label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            background: #1a1a1e;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            outline: none;
+            font-family: var(--font-sans);
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary-light);
+        }
+
+        .input-group p.hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* --- CHI TIẾT CHUYỂN KHOẢN --- */
+        .info-title {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2d2d35;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #2d2d35;
+        }
+
+        .info-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .info-value {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #fff;
+            text-align: right;
+        }
+
+        .info-value.highlight {
+            color: #f1c40f;
+            font-family: var(--font-heading);
+            font-weight: 900;
+        }
+
+        /* --- NÚT BẤM PIXEL --- */
+        .btn-pixel-copy {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            padding: 4px 10px;
+            font-weight: 900;
+            font-size: 0.8rem;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px #000;
+            text-transform: uppercase;
+            font-family: var(--font-heading);
+            margin-left: 8px;
+        }
+
+        .btn-pixel-copy:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px #000;
+        }
+
+        /* --- KHỐI QR RIGHT --- */
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .qr-box {
+            background: #fff;
+            padding: 15px;
+            border: var(--stroke-pixel);
+            box-shadow: 6px 6px 0px #000;
+            margin-bottom: 20px;
+            display: inline-block;
+            max-width: 260px;
+        }
+
+        .qr-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .qr-hint {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 300px;
+        }
+
+        /* --- LƯU Ý --- */
+        .notice-box {
+            margin-top: 30px;
+            background: #121214;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px 20px;
+        }
+
+        .notice-box h4 {
+            font-family: var(--font-heading);
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .notice-box ul {
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .notice-box li {
+            margin-bottom: 6px;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* --- TOAST THÔNG BÁO --- */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #2ecc71;
+            color: #fff;
+            padding: 12px 25px;
+            font-weight: 700;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            font-size: 0.95rem;
+            z-index: 999;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="toast" class="toast">Đã sao chép thành công!</div>
+
+    <header class="pay-header">
+        <div class="container">
+            <img src="NBLRB.png" alt="NAGA MC Logo">
+            <h1>Ủng Hộ Máy Chủ</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="index.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> QUAY LẠI TRANG CHỦ
+        </a>
+
+        <div class="pay-grid">
+            
+            <div class="pay-card">
+                
+                <div class="input-group">
+                    <h3>1. Thiết lập thông tin nạp</h3>
+                    
+                    <div class="field-block">
+                        <label for="player-name-input">TÊN NHÂN VẬT MINECRAFT</label>
+                        <input type="text" id="player-name-input" placeholder="Ví dụ: Steve, Alex...">
+                    </div>
+
+                    <div class="field-block" style="margin-top: 15px;">
+                        <label for="player-amount-input">SỐ TIỀN MUỐN ỦNG HỘ (VND)</label>
+                        <input type="number" id="player-amount-input" value="20000" min="10000" placeholder="Nhập số tiền (Từ 10,000đ)...">
+                    </div>
+                    
+                    <p class="hint">* Mã QR bên phải và thông tin sẽ tự động thay đổi theo số tiền và tên bạn nhập.</p>
+                </div>
+
+                <h2 class="info-title">2. Thông tin tài khoản</h2>
+                
+                <div class="info-row">
+                    <span class="info-label">Ngân hàng</span>
+                    <span class="info-value">MB BANK (Ngân hàng Quân Đội)</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Số tài khoản</span>
+                    <span class="info-value">
+                        <span id="val-stk">0362534197</span> </span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Chủ tài khoản</span>
+                    <span class="info-value">TRAN NGOC THIEN</span> </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Số tiền thực tế</span>
+                    <span class="info-value highlight" id="val-amount-display">10,000 VND ~ 30,000 VND</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Nội dung ghi chú</span>
+                    <span class="info-value" style="color: #f1c40f;">
+                        <span id="val-cu-phap">NAGAMC</span>
+                        <button class="btn-pixel-copy" id="btn-copy">
+                            <i class="fa-solid fa-copy"></i> Sao chép
+                        </button>
+                    </span>
+                </div>
+
+                <div class="notice-box">
+                    <h4><i class="fa-solid fa-circle-exclamation"></i> Hướng dẫn quan trọng:</h4>
+                    <ul>
+                        <li>Hệ thống chấp nhận mọi mệnh giá dao động (Ví dụ: 10k, 15k, 20k, 30k...).</li>
+                        <li>Hãy điền đầy đủ Tên nhân vật và Số tiền <strong>trước khi quét mã QR</strong>.</li>
+                        <li>Hệ thống SePay tự động duyệt quà và chạy lệnh RCON kích hoạt quyền lợi trong game sau 3 - 5 giây dựa trên số dư ghi nhận thực tế.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pay-card qr-section">
+                <h2 class="info-title" style="width: 100%;">3. Quét mã QR để nạp</h2>
+                
+                <div class="qr-box">
+                    <img id="dynamic-qr" src="https://api.vietqr.io/image/MB-0123456789-qr_only.jpg?accountName=NGUYEN%20VAN%20A&amount=20000&addInfo=NAGAMC" alt="Mã QR Chuyển Khoản">
+                </div>
+
+                <p class="qr-hint">
+                    Mở ứng dụng Ngân hàng bất kỳ (MB Bank, Vietcombank, Techcombank...) chọn <strong>Quét QR</strong> để thực hiện thanh toán nhanh tự động.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 NAGA MC. Thiết kế đồng bộ hệ thống máy chủ Vanilla.</p>
+        </div>
+    </footer>
+
+    <script>
+        const nameInput = document.getElementById('player-name-input');
+        const amountInput = document.getElementById('player-amount-input');
+        const qrImage = document.getElementById('dynamic-qr');
+        const cuPhapText = document.getElementById('val-cu-phap');
+        const amountDisplay = document.getElementById('val-amount-display');
+        const toast = document.getElementById('toast');
+
+        // --- CẤU HÌNH NGÂN HÀNG CỦA BẠN TẠI ĐÂY ---
+        const BANK_ID = "MB";                      
+        const ACCOUNT_NO = "0362534197";          // CHÚ Ý: Sửa thành STK MB Bank thật của bạn
+        const ACCOUNT_NAME = "TRAN NGOC THIEN";      // CHÚ Ý: Sửa thành Tên bạn (VIẾT HOA KHÔNG DẤU)
+
+        // Hàm cập nhật toàn bộ trạng thái Mã QR và bảng hiển thị
+        function updatePaymentDetails() {
+            const name = nameInput.value.trim().replace(/\s+/g, '');
+            let amount = amountInput.value.trim();
+            
+            // Nếu người chơi xóa trống số tiền, mặc định tính là 0 để sinh mã
+            if (!amount || amount < 0) amount = "0";
+
+            // Định dạng hiển thị số tiền dạng có dấu phẩy (Ví dụ: 20,000 VND)
+            amountDisplay.innerText = `${Number(amount).toLocaleString('vi-VN')} VND`;
+
+            // Xử lý chuỗi cú pháp ghi chú
+            let infoText = "NAGAMC";
+            if (name.length > 0) {
+                infoText = `NAGAMC ${name}`;
+                cuPhapText.innerText = infoText;
+            } else {
+                cuPhapText.innerText = "NAGAMC";
+            }
+
+            // Cập nhật URL ảnh QR động theo cả Số tiền vừa nhập và Tên vừa gõ
+            qrImage.src = `https://api.vietqr.io/image/${BANK_ID}-${ACCOUNT_NO}-qr_only.jpg?accountName=${encodeURIComponent(ACCOUNT_NAME)}&amount=${amount}&addInfo=${encodeURIComponent(infoText)}`;
+        }
+
+        // Lắng nghe sự kiện thay đổi ở cả 2 ô nhập liệu
+        nameInput.addEventListener('input', updatePaymentDetails);
+        amountInput.addEventListener('input', updatePaymentDetails);
+
+        // Xử lý nút bấm Sao chép cú pháp nhanh
+        document.getElementById('btn-copy').addEventListener('click', () => {
+            const name = nameInput.value.trim().replace(/\s+/g, '');
+            const textToCopy = name ? `NAGAMC ${name}` : "NAGAMC"; 
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                toast.innerText = `Đã sao chép cú pháp: ${textToCopy}`;
+                toast.classList.add('show');
+                setTimeout(() => { toast.classList.remove('show'); }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
