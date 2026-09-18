@@ -182,7 +182,7 @@ img {
     text-align: center;
     padding: 120px 20px 60px 20px;
     /* Sử dụng hình nền phong cảnh Minecraft mờ ảo phía sau */
-    background: url('MCV_HOL25Drop_MoM_DotNet_Wallpaper_800x450.png') no-repeat center center/cover;
+    background: url('pics/MCV_HOL25Drop_MoM_DotNet_Wallpaper_800x450.png') no-repeat center center/cover;
 }
 
 .hero-overlay {
