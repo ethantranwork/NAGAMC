@@ -1,0 +1,2 @@
+# NAGAMC
+Máy chủ Minecraft
